@@ -7,7 +7,7 @@
   "framework": "vite",
   "rewrites": [
     {
-      "source": "/((?!JS|CSS|assets|.*\\.(js|css|png|jpg|jpeg|gif|svg|pdf|ico|json)).*)",
+      "source": "/(?!JS|CSS|assets|.*\\.(js|css|png|jpg|jpeg|gif|svg|pdf|ico|json)).*",
       "destination": "/index.html"
     }
   ],
@@ -26,24 +26,6 @@
         {
           "key": "X-XSS-Protection",
           "value": "1; mode=block"
-        }
-      ]
-    },
-    {
-      "source": "/JS/(.*)",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/javascript"
-        }
-      ]
-    },
-    {
-      "source": "/CSS/(.*)",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/css"
         }
       ]
     }
