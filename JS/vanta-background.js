@@ -5,9 +5,15 @@
  */
 
 let vantaEffect = null;
+let isInitializing = false;
 
 // Initialize Vanta.js with theme-aware colors
 function initVantaBackground() {
+  // Prevent multiple simultaneous initializations
+  if (isInitializing) {
+    return;
+  }
+  
   // Check for VANTA (can be window.VANTA or global VANTA)
   const VANTA_AVAILABLE = (typeof window !== 'undefined' && window.VANTA) || (typeof VANTA !== 'undefined');
   
@@ -30,6 +36,9 @@ function initVantaBackground() {
     return;
   }
 
+  // Mark as initializing
+  isInitializing = true;
+
   // Wait for theme to be applied
   setTimeout(() => {
     const isDark = document.documentElement.getAttribute("data-theme") === "dark";
@@ -43,6 +52,9 @@ function initVantaBackground() {
     if (vantaEffect) {
       try {
         vantaEffect.destroy();
+        // Remove any existing canvas elements
+        const existingCanvases = document.body.querySelectorAll('canvas.vanta-canvas');
+        existingCanvases.forEach(canvas => canvas.remove());
       } catch (e) {
         console.log("Error destroying previous effect:", e);
       }
@@ -69,9 +81,12 @@ function initVantaBackground() {
       
       console.log("Vanta.js background initialized successfully", vantaEffect);
       
+      // Mark initialization as complete
+      isInitializing = false;
+      
       // Ensure canvas is positioned correctly for wavy flowy effect
       setTimeout(() => {
-        const canvas = document.body.querySelector('canvas');
+        const canvas = document.body.querySelector('canvas.vanta-canvas');
         if (canvas) {
           canvas.style.position = 'fixed';
           canvas.style.top = '0';
@@ -80,25 +95,29 @@ function initVantaBackground() {
           canvas.style.height = '100%';
           canvas.style.zIndex = '-1';
           canvas.style.pointerEvents = 'none';
-          // Ensure canvas covers full viewport for wavy effect
-          canvas.setAttribute('width', window.innerWidth);
-          canvas.setAttribute('height', window.innerHeight);
           console.log("Canvas styled for wavy effect:", canvas);
         } else {
           console.warn("Canvas not found after initialization");
         }
       }, 500);
-      
-      // Update canvas size on window resize for continuous wavy effect
-      window.addEventListener('resize', () => {
-        if (vantaEffect && vantaEffect.resize) {
-          vantaEffect.resize();
-        }
-      });
     } catch (error) {
       console.error("Error initializing Vanta.js:", error);
+      isInitializing = false;
     }
   }, 300);
+}
+
+// Update canvas size on window resize for continuous wavy effect
+if (typeof window !== 'undefined') {
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      if (vantaEffect && vantaEffect.resize) {
+        vantaEffect.resize();
+      }
+    }, 250);
+  });
 }
 
 // Initialize when DOM is ready and scripts are loaded
