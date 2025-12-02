@@ -20,10 +20,15 @@ function initVantaBackground() {
       window.VANTA.current.destroy();
     }
 
-    // Initialize Vanta.js with current theme colors
-    VANTA.FOG({
+    // Initialize Vanta.js with current theme colors - CLOUDS for smoky effect
+    VANTA.CLOUDS({
       ...VANTA_CONFIG,
-      ...colors,
+      skyColor: colors.baseColor,
+      cloudColor: colors.midtoneColor,
+      cloudShadowColor: colors.lowlightColor,
+      sunColor: colors.highlightColor,
+      sunGlareColor: colors.highlightColor,
+      sunlightColor: colors.highlightColor,
     });
   }, 200);
 }
