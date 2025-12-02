@@ -31,8 +31,15 @@ function initVantaBackground() {
 
   // Get the VANTA object
   const VANTA = window.VANTA || (typeof VANTA !== 'undefined' ? VANTA : null);
-  if (!VANTA || !VANTA.FOG) {
-    console.error("VANTA.FOG is not available");
+  if (!VANTA) {
+    console.error("VANTA is not available");
+    return;
+  }
+  
+  // Try WAVES first (more wavy style), fallback to FOG
+  const effectType = VANTA.WAVES ? 'WAVES' : (VANTA.FOG ? 'FOG' : null);
+  if (!effectType) {
+    console.error("No Vanta.js effect available");
     return;
   }
 
@@ -61,23 +68,41 @@ function initVantaBackground() {
       vantaEffect = null;
     }
 
-    // Initialize Vanta.js with current theme colors
+    // Initialize Vanta.js with current theme colors - using WAVES for original wavy style
     try {
-      vantaEffect = VANTA.FOG({
-        el: document.body,
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.00,
-        minWidth: 200.00,
-        highlightColor: colors.highlightColor,
-        midtoneColor: colors.midtoneColor,
-        lowlightColor: colors.lowlightColor,
-        baseColor: colors.baseColor,
-        speed: 2.5,
-        zoom: 1.6,
-        blurFactor: 0.5,
-      });
+      if (effectType === 'WAVES') {
+        vantaEffect = VANTA.WAVES({
+          el: document.body,
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: true,
+          minHeight: 100.0,
+          minWidth: 100.0,
+          scale: 1.0,
+          scaleMobile: 1.0,
+          color: colors.midtoneColor,
+          shininess: 50,
+          waveHeight: 20,
+          waveSpeed: 1.5,
+          zoom: 0.75,
+        });
+      } else {
+        // Fallback to FOG with original settings
+        vantaEffect = VANTA.FOG({
+          el: document.body,
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: true,
+          minHeight: 100.0,
+          minWidth: 100.0,
+          highlightColor: colors.highlightColor,
+          midtoneColor: colors.midtoneColor,
+          lowlightColor: colors.lowlightColor,
+          baseColor: colors.baseColor,
+          speed: 2.5,
+          zoom: 1.6,
+        });
+      }
       
       console.log("Vanta.js background initialized successfully", vantaEffect);
       
