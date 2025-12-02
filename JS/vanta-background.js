@@ -4,41 +4,8 @@
  * Uses the theme configuration from theme-config.js
  */
 
-let vantaEffect = null;
-let isInitializing = false;
-
 // Initialize Vanta.js with theme-aware colors
 function initVantaBackground() {
-  // Prevent multiple simultaneous initializations
-  if (isInitializing) {
-    return;
-  }
-  
-  // Check for VANTA (can be window.VANTA or global VANTA)
-  const VANTA_AVAILABLE = (typeof window !== 'undefined' && window.VANTA) || (typeof VANTA !== 'undefined');
-  
-  if (!VANTA_AVAILABLE) {
-    console.log("Waiting for Vanta.js to load...");
-    setTimeout(initVantaBackground, 200);
-    return;
-  }
-  
-  if (typeof THEME_CONFIG === 'undefined' || typeof VANTA_CONFIG === 'undefined') {
-    console.log("Waiting for theme config to load...");
-    setTimeout(initVantaBackground, 200);
-    return;
-  }
-
-  // Get the VANTA object
-  const VANTA = window.VANTA || (typeof VANTA !== 'undefined' ? VANTA : null);
-  if (!VANTA || !VANTA.FOG) {
-    console.error("VANTA.FOG is not available");
-    return;
-  }
-
-  // Mark as initializing
-  isInitializing = true;
-
   // Wait for theme to be applied
   setTimeout(() => {
     const isDark = document.documentElement.getAttribute("data-theme") === "dark";
@@ -49,89 +16,47 @@ function initVantaBackground() {
     const colors = isDark ? THEME_CONFIG.dark : THEME_CONFIG.light;
 
     // Destroy existing effect if it exists
-    if (vantaEffect) {
-      try {
-        vantaEffect.destroy();
-        // Remove any existing canvas elements
-        const existingCanvases = document.body.querySelectorAll('canvas.vanta-canvas');
-        existingCanvases.forEach(canvas => canvas.remove());
-      } catch (e) {
-        console.log("Error destroying previous effect:", e);
-      }
-      vantaEffect = null;
+    if (window.VANTA && window.VANTA.current) {
+      window.VANTA.current.destroy();
     }
 
-    // Initialize Vanta.js with current theme colors - using FOG (original effect)
+    // Initialize Vanta.js with current theme colors - using original OG implementation
     try {
       vantaEffect = VANTA.FOG({
+        ...VANTA_CONFIG,
         el: document.body,
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.00,
-        minWidth: 200.00,
         highlightColor: colors.highlightColor,
         midtoneColor: colors.midtoneColor,
         lowlightColor: colors.lowlightColor,
         baseColor: colors.baseColor,
-        speed: 2.5,
-        zoom: 1.6,
       });
       
-      console.log("Vanta.js background initialized successfully", vantaEffect);
-      
-      // Mark initialization as complete
-      isInitializing = false;
-      
-      // Ensure canvas is positioned correctly for wavy flowy effect
-      setTimeout(() => {
-        const canvas = document.body.querySelector('canvas.vanta-canvas');
-        if (canvas) {
-          canvas.style.position = 'fixed';
-          canvas.style.top = '0';
-          canvas.style.left = '0';
-          canvas.style.width = '100%';
-          canvas.style.height = '100%';
-          canvas.style.zIndex = '-1';
-          canvas.style.pointerEvents = 'none';
-          console.log("Canvas styled for wavy effect:", canvas);
-        } else {
-          console.warn("Canvas not found after initialization");
-        }
-      }, 500);
-    } catch (error) {
-      console.error("Error initializing Vanta.js:", error);
-      isInitializing = false;
-    }
-  }, 300);
+  }, 200);
 }
 
-// Update canvas size on window resize for continuous wavy effect
-if (typeof window !== 'undefined') {
-  let resizeTimeout;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-      if (vantaEffect && vantaEffect.resize) {
-        vantaEffect.resize();
+// Initialize when DOM is ready
+document.addEventListener("DOMContentLoaded", () => {
+  // Wait a bit for theme manager to initialize
+  setTimeout(initVantaBackground, 500);
+
+  // Re-initialize when theme changes
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (
+        mutation.type === "attributes" &&
+        mutation.attributeName === "data-theme"
+      ) {
+        console.log("Theme changed, reinitializing Vanta.js");
+        initVantaBackground();
       }
-    }, 250);
-  });
-}
-
-// Initialize when DOM is ready and scripts are loaded
-function startVantaInit() {
-  if (document.readyState === 'loading') {
-    document.addEventListener("DOMContentLoaded", () => {
-      setTimeout(initVantaBackground, 1000);
     });
-  } else {
-    setTimeout(initVantaBackground, 1000);
-  }
-}
+  });
 
-// Start initialization
-startVantaInit();
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["data-theme"],
+  });
+});
 
 // Re-initialize when theme changes
 const observer = new MutationObserver((mutations) => {
