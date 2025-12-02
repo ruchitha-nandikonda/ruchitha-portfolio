@@ -30,10 +30,32 @@ function initVantaBackground() {
     // Initialize Vanta.js with current theme colors
     try {
       window.VANTA.current = VANTA.FOG({
-        ...VANTA_CONFIG,
-        ...colors,
+        el: document.body,
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        highlightColor: colors.highlightColor,
+        midtoneColor: colors.midtoneColor,
+        lowlightColor: colors.lowlightColor,
+        baseColor: colors.baseColor,
+        speed: 2.5,
+        zoom: 1.6,
       });
       console.log("Vanta.js background initialized successfully");
+      
+      // Ensure canvas is positioned correctly
+      const canvas = document.body.querySelector('canvas');
+      if (canvas) {
+        canvas.style.position = 'fixed';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        canvas.style.zIndex = '-1';
+        canvas.style.pointerEvents = 'none';
+      }
     } catch (error) {
       console.error("Error initializing Vanta.js:", error);
     }
@@ -41,15 +63,31 @@ function initVantaBackground() {
 }
 
 // Initialize when DOM is ready and scripts are loaded
-if (document.readyState === 'loading') {
-  document.addEventListener("DOMContentLoaded", () => {
-    // Wait for all scripts to load
-    setTimeout(initVantaBackground, 800);
-  });
-} else {
-  // DOM already loaded, wait for scripts
-  setTimeout(initVantaBackground, 800);
+function startVantaInit() {
+  // Wait for window.VANTA to be available (loaded from CDN)
+  if (typeof window.VANTA === 'undefined') {
+    setTimeout(startVantaInit, 100);
+    return;
+  }
+  
+  // Wait for theme config
+  if (typeof THEME_CONFIG === 'undefined' || typeof VANTA_CONFIG === 'undefined') {
+    setTimeout(startVantaInit, 100);
+    return;
+  }
+  
+  // Now initialize
+  if (document.readyState === 'loading') {
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(initVantaBackground, 500);
+    });
+  } else {
+    setTimeout(initVantaBackground, 500);
+  }
 }
+
+// Start initialization
+startVantaInit();
 
 // Re-initialize when theme changes
 const observer = new MutationObserver((mutations) => {
