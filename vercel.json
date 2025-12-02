@@ -5,9 +5,18 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": "vite",
+  "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/(?!JS|CSS|assets|.*\\.(js|css|png|jpg|jpeg|gif|svg|pdf|ico|json)).*",
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": "text/html"
+        }
+      ],
       "destination": "/index.html"
     }
   ],
