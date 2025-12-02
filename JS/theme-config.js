@@ -7,18 +7,18 @@
 // Theme color configurations
 const THEME_CONFIG = {
   light: {
-    // Light theme colors - soft purple fog
-    highlightColor: 0xf5e6f0,
-    midtoneColor: 0xdfb8b2,
-    lowlightColor: 0xf5e6f0,
-    baseColor: 0xfaf5f8,
+    // Light theme colors
+    highlightColor: 0xffffff,
+    midtoneColor: 0x954f6c,
+    lowlightColor: 0xffffff,
+    baseColor: 0xffffff,
   },
   dark: {
-    // Dark theme colors - smooth purple fog
-    highlightColor: 0x623b5b, // Deep muted purple
-    midtoneColor: 0x2b124c, // Dark violet
-    lowlightColor: 0x190019, // Near-black wine
-    baseColor: 0x190019, // Near-black wine
+    // Dark theme colors - current index.html dark theme
+    highlightColor: 0x6e2b62, // Deep Plum (as a subtle highlight)
+    midtoneColor: 0x1f162f, // Midnight Purple
+    lowlightColor: 0x080707, // True Black
+    baseColor: 0x080707, // True Black
   }
 };
 

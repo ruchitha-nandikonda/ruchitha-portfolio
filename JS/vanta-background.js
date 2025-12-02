@@ -62,8 +62,8 @@ function initVantaBackground() {
         midtoneColor: colors.midtoneColor,
         lowlightColor: colors.lowlightColor,
         baseColor: colors.baseColor,
-        speed: 1.0,
-        zoom: 0.8,
+        speed: 2.5,
+        zoom: 1.6,
       });
       
       console.log("Vanta.js background initialized successfully", vantaEffect);
