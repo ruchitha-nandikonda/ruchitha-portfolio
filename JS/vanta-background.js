@@ -4,12 +4,29 @@
  * Uses the theme configuration from theme-config.js
  */
 
+let vantaEffect = null;
+
 // Initialize Vanta.js with theme-aware colors
 function initVantaBackground() {
-  // Check if all dependencies are loaded
-  if (typeof VANTA === 'undefined' || typeof THEME_CONFIG === 'undefined' || typeof VANTA_CONFIG === 'undefined') {
-    console.log("Waiting for Vanta.js dependencies to load...");
-    setTimeout(initVantaBackground, 100);
+  // Check for VANTA (can be window.VANTA or global VANTA)
+  const VANTA_AVAILABLE = (typeof window !== 'undefined' && window.VANTA) || (typeof VANTA !== 'undefined');
+  
+  if (!VANTA_AVAILABLE) {
+    console.log("Waiting for Vanta.js to load...");
+    setTimeout(initVantaBackground, 200);
+    return;
+  }
+  
+  if (typeof THEME_CONFIG === 'undefined' || typeof VANTA_CONFIG === 'undefined') {
+    console.log("Waiting for theme config to load...");
+    setTimeout(initVantaBackground, 200);
+    return;
+  }
+
+  // Get the VANTA object
+  const VANTA = window.VANTA || (typeof VANTA !== 'undefined' ? VANTA : null);
+  if (!VANTA || !VANTA.FOG) {
+    console.error("VANTA.FOG is not available");
     return;
   }
 
@@ -23,13 +40,18 @@ function initVantaBackground() {
     const colors = isDark ? THEME_CONFIG.dark : THEME_CONFIG.light;
 
     // Destroy existing effect if it exists
-    if (window.VANTA && window.VANTA.current) {
-      window.VANTA.current.destroy();
+    if (vantaEffect) {
+      try {
+        vantaEffect.destroy();
+      } catch (e) {
+        console.log("Error destroying previous effect:", e);
+      }
+      vantaEffect = null;
     }
 
     // Initialize Vanta.js with current theme colors
     try {
-      window.VANTA.current = VANTA.FOG({
+      vantaEffect = VANTA.FOG({
         el: document.body,
         mouseControls: true,
         touchControls: true,
@@ -43,46 +65,39 @@ function initVantaBackground() {
         speed: 2.5,
         zoom: 1.6,
       });
-      console.log("Vanta.js background initialized successfully");
       
-      // Ensure canvas is positioned correctly
-      const canvas = document.body.querySelector('canvas');
-      if (canvas) {
-        canvas.style.position = 'fixed';
-        canvas.style.top = '0';
-        canvas.style.left = '0';
-        canvas.style.width = '100%';
-        canvas.style.height = '100%';
-        canvas.style.zIndex = '-1';
-        canvas.style.pointerEvents = 'none';
-      }
+      console.log("Vanta.js background initialized successfully", vantaEffect);
+      
+      // Ensure canvas is positioned correctly after a short delay
+      setTimeout(() => {
+        const canvas = document.body.querySelector('canvas');
+        if (canvas) {
+          canvas.style.position = 'fixed';
+          canvas.style.top = '0';
+          canvas.style.left = '0';
+          canvas.style.width = '100%';
+          canvas.style.height = '100%';
+          canvas.style.zIndex = '-1';
+          canvas.style.pointerEvents = 'none';
+          console.log("Canvas styled:", canvas);
+        } else {
+          console.warn("Canvas not found after initialization");
+        }
+      }, 500);
     } catch (error) {
       console.error("Error initializing Vanta.js:", error);
     }
-  }, 200);
+  }, 300);
 }
 
 // Initialize when DOM is ready and scripts are loaded
 function startVantaInit() {
-  // Wait for window.VANTA to be available (loaded from CDN)
-  if (typeof window.VANTA === 'undefined') {
-    setTimeout(startVantaInit, 100);
-    return;
-  }
-  
-  // Wait for theme config
-  if (typeof THEME_CONFIG === 'undefined' || typeof VANTA_CONFIG === 'undefined') {
-    setTimeout(startVantaInit, 100);
-    return;
-  }
-  
-  // Now initialize
   if (document.readyState === 'loading') {
     document.addEventListener("DOMContentLoaded", () => {
-      setTimeout(initVantaBackground, 500);
+      setTimeout(initVantaBackground, 1000);
     });
   } else {
-    setTimeout(initVantaBackground, 500);
+    setTimeout(initVantaBackground, 1000);
   }
 }
 
