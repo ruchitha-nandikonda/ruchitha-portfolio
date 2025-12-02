@@ -20,17 +20,11 @@ function initVantaBackground() {
       window.VANTA.current.destroy();
     }
 
-    // Initialize Vanta.js with current theme colors - using original OG implementation
-    try {
-      vantaEffect = VANTA.FOG({
-        ...VANTA_CONFIG,
-        el: document.body,
-        highlightColor: colors.highlightColor,
-        midtoneColor: colors.midtoneColor,
-        lowlightColor: colors.lowlightColor,
-        baseColor: colors.baseColor,
-      });
-      
+    // Initialize Vanta.js with current theme colors
+    VANTA.FOG({
+      ...VANTA_CONFIG,
+      ...colors,
+    });
   }, 200);
 }
 
@@ -56,24 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
     attributes: true,
     attributeFilter: ["data-theme"],
   });
-});
-
-// Re-initialize when theme changes
-const observer = new MutationObserver((mutations) => {
-  mutations.forEach((mutation) => {
-    if (
-      mutation.type === "attributes" &&
-      mutation.attributeName === "data-theme"
-    ) {
-      console.log("Theme changed, reinitializing Vanta.js");
-      setTimeout(initVantaBackground, 300);
-    }
-  });
-});
-
-observer.observe(document.documentElement, {
-  attributes: true,
-  attributeFilter: ["data-theme"],
 });
 
 // Export function for manual initialization if needed
