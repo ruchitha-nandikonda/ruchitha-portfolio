@@ -64,11 +64,12 @@ function initVantaBackground() {
         baseColor: colors.baseColor,
         speed: 2.5,
         zoom: 1.6,
+        blurFactor: 0.5,
       });
       
       console.log("Vanta.js background initialized successfully", vantaEffect);
       
-      // Ensure canvas is positioned correctly after a short delay
+      // Ensure canvas is positioned correctly for wavy flowy effect
       setTimeout(() => {
         const canvas = document.body.querySelector('canvas');
         if (canvas) {
@@ -79,11 +80,21 @@ function initVantaBackground() {
           canvas.style.height = '100%';
           canvas.style.zIndex = '-1';
           canvas.style.pointerEvents = 'none';
-          console.log("Canvas styled:", canvas);
+          // Ensure canvas covers full viewport for wavy effect
+          canvas.setAttribute('width', window.innerWidth);
+          canvas.setAttribute('height', window.innerHeight);
+          console.log("Canvas styled for wavy effect:", canvas);
         } else {
           console.warn("Canvas not found after initialization");
         }
       }, 500);
+      
+      // Update canvas size on window resize for continuous wavy effect
+      window.addEventListener('resize', () => {
+        if (vantaEffect && vantaEffect.resize) {
+          vantaEffect.resize();
+        }
+      });
     } catch (error) {
       console.error("Error initializing Vanta.js:", error);
     }
