@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>System Design - Ruchitha Nandikonda</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=telma@700&f[]=chillax@500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../CSS/base.css" />
+    <link rel="stylesheet" href="../CSS/header.css" />
+    <link rel="stylesheet" href="../CSS/designs.css" />
+    <link rel="stylesheet" href="../CSS/about.css" />
+    <link rel="stylesheet" href="../CSS/footer.css" />
+    <link rel="stylesheet" href="../CSS/chatbot.css" />
+  </head>
+  <body>
+    <!-- Navigation header -->
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-container">
+          <a href="index.html" class="nav-link">Work</a>
+          <a href="about.html" class="nav-link">About</a>
+
+          <button class="theme-toggle" aria-label="Toggle dark mode">
+            <span class="theme-icon">🌙</span>
+          </button>
+
+          <a href="designs.html" class="nav-link active">Design</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero section -->
+      <section class="designs-hero">
+        <div class="section-container">
+          <h1 class="designs-title">System Design</h1>
+          <p class="designs-description">
+            How I design, build, and scale full-stack systems with Java, Spring Boot, React, AWS, and modern cloud tooling.
+          </p>
+        </div>
+      </section>
+
+      <!-- How I design systems -->
+      <section class="my-story">
+        <div class="section-container">
+          <h2 class="section-title">How I Think About Systems</h2>
+          <div class="story-content">
+            <ul style="list-style: none; padding: 0;">
+              <li style="margin-bottom: var(--space-3); padding-left: var(--space-6); position: relative;">
+                <span style="position: absolute; left: 0;">→</span>
+                Start from clear user and business requirements.
+              </li>
+              <li style="margin-bottom: var(--space-3); padding-left: var(--space-6); position: relative;">
+                <span style="position: absolute; left: 0;">→</span>
+                Design REST APIs and data models (SQL or NoSQL) first.
+              </li>
+              <li style="margin-bottom: var(--space-3); padding-left: var(--space-6); position: relative;">
+                <span style="position: absolute; left: 0;">→</span>
+                Split responsibilities across services or modules where it makes sense.
+              </li>
+              <li style="margin-bottom: var(--space-3); padding-left: var(--space-6); position: relative;">
+                <span style="position: absolute; left: 0;">→</span>
+                Add security early: auth, roles, validation, logging.
+              </li>
+              <li style="margin-bottom: var(--space-3); padding-left: var(--space-6); position: relative;">
+                <span style="position: absolute; left: 0;">→</span>
+                Plan for scale with caching, async flows, and load balancing.
+              </li>
+              <li style="margin-bottom: var(--space-3); padding-left: var(--space-6); position: relative;">
+                <span style="position: absolute; left: 0;">→</span>
+                Monitor everything with logs, metrics, and alerts.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SmartCart case study -->
+      <section class="experience">
+        <div class="section-container">
+          <h2 class="section-title">SmartCart</h2>
+          <div class="content-text" style="margin-bottom: var(--space-6);">
+            <p>
+              SmartCart is a full-stack grocery optimizer that keeps your pantry, meal plans, and local deals in sync so you only buy what you need.
+            </p>
+          </div>
+          <div class="timeline-details">
+            <ul class="detail-list">
+              <li>React + TypeScript frontend with Tailwind for a responsive UI.</li>
+              <li>Spring Boot backend exposing REST APIs for pantry, deals, and lists.</li>
+              <li>AWS DynamoDB for storing pantry and pricing data.</li>
+              <li>AWS Textract for scanning grocery receipts and updating the pantry automatically.</li>
+              <li>Docker and Terraform for repeatable cloud deployment.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lucid Loom case study -->
+      <section class="experience">
+        <div class="section-container">
+          <h2 class="section-title">Lucid Loom</h2>
+          <div class="content-text" style="margin-bottom: var(--space-6);">
+            <p>
+              Lucid Loom is an AI-powered dream platform that turns user dreams into structured insights and visuals.
+            </p>
+          </div>
+          <div class="timeline-details">
+            <ul class="detail-list">
+              <li>React + Tailwind UI built with Vite for fast, smooth interactions.</li>
+              <li>Python FastAPI backend with JWT auth, SQLAlchemy models, and WebSockets.</li>
+              <li>Integrations with Groq and DALL-E for analysis and image generation.</li>
+              <li>PostgreSQL in production, Docker-based deployment on Railway and Vercel.</li>
+              <li>Focus on async workflows, API design, and clear separation of concerns.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Enterprise experience -->
+      <section class="principles">
+        <div class="section-container">
+          <h2 class="section-title">Enterprise Architecture in Practice</h2>
+          <div class="principles-grid">
+            <div class="principle-card">
+              <h3 class="principle-title">Berkshire Hathaway</h3>
+              <p class="principle-text">
+                Modernizing legacy healthcare and insurance systems into cloud-native services on AWS.
+                Built SOAP + REST APIs, containerized applications with Docker & Kubernetes,
+                and set up CI/CD with Jenkins to cut deployment time by 50%.
+              </p>
+            </div>
+            <div class="principle-card">
+              <h3 class="principle-title">Experion Technologies</h3>
+              <p class="principle-text">
+                Developed Spring Boot microservices with PostgreSQL for 50k+ users, migrated on-prem
+                apps to AWS for 25% cost savings, and implemented ELK-based monitoring to catch
+                issues earlier in production.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- What I want to build next -->
+      <section class="my-story">
+        <div class="section-container">
+          <h2 class="section-title">What I Want To Build Next</h2>
+          <div class="story-content">
+            <ul style="list-style: none; padding: 0;">
+              <li style="margin-bottom: var(--space-3); padding-left: var(--space-6); position: relative;">
+                <span style="position: absolute; left: 0;">→</span>
+                AI tools that help developers write, review, and debug code
+              </li>
+              <li style="margin-bottom: var(--space-3); padding-left: var(--space-6); position: relative;">
+                <span style="position: absolute; left: 0;">→</span>
+                Real-time chatbots for enterprise teams with smart search and RAG
+              </li>
+              <li style="margin-bottom: var(--space-3); padding-left: var(--space-6); position: relative;">
+                <span style="position: absolute; left: 0;">→</span>
+                Predictive analytics dashboards using ML models
+              </li>
+              <li style="margin-bottom: var(--space-3); padding-left: var(--space-6); position: relative;">
+                <span style="position: absolute; left: 0;">→</span>
+                Scalable microservices with Spring Boot, Kafka, and Kubernetes
+              </li>
+              <li style="margin-bottom: var(--space-3); padding-left: var(--space-6); position: relative;">
+                <span style="position: absolute; left: 0;">→</span>
+                Full-stack SaaS apps with React, Spring Boot APIs, and multi-tenant setup
+              </li>
+              <li style="margin-bottom: var(--space-3); padding-left: var(--space-6); position: relative;">
+                <span style="position: absolute; left: 0;">→</span>
+                Automated data pipelines for clean, reliable analytics
+              </li>
+              <li style="margin-bottom: var(--space-3); padding-left: var(--space-6); position: relative;">
+                <span style="position: absolute; left: 0;">→</span>
+                Cloud-native systems on AWS with CI/CD, Docker, and Terraform
+              </li>
+              <li style="margin-bottom: var(--space-3); padding-left: var(--space-6); position: relative;">
+                <span style="position: absolute; left: 0;">→</span>
+                Smart workflow automation tools powered by LLMs
+              </li>
+              <li style="margin-bottom: var(--space-3); padding-left: var(--space-6); position: relative;">
+                <span style="position: absolute; left: 0;">→</span>
+                Custom recommendation systems for business use cases
+              </li>
+              <li style="margin-bottom: var(--space-3); padding-left: var(--space-6); position: relative;">
+                <span style="position: absolute; left: 0;">→</span>
+                Real-time monitoring and alerting platforms with AI-based anomaly detection
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resume download section -->
+      <section class="resume-section">
+        <div class="section-container">
+          <button class="resume-btn">
+            <span class="download-icon">⬇</span>
+            Download Resume
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="social-links">
+          <a
+            href="https://linkedin.com/in/ruchitha-nandikonda"
+            target="_blank"
+            class="social-link"
+          >
+            <span class="social-icon">💼</span>
+            <span class="social-text">LinkedIn</span>
+            <span class="external-icon">↗</span>
+          </a>
+          <a
+            href="https://github.com/ruchitha-nandikonda"
+            target="_blank"
+            class="social-link"
+          >
+            <span class="social-icon">💻</span>
+            <span class="social-text">GitHub</span>
+            <span class="external-icon">↗</span>
+          </a>
+          <a href="mailto:ruchithajobit@gmail.com" class="social-link">
+            <span class="social-icon">✉️</span>
+            <span class="social-text">Email</span>
+          </a>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="copyright">© 2024 Ruchitha Nandikonda. Built with care.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Chatbot Contact Section -->
+    <div class="chatbot-overlay" id="chatbotOverlay">
+      <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+          <div class="chatbot-header-content">
+            <div class="chatbot-title-group">
+              <h3 class="chatbot-title">Ruchitha's Assistant</h3>
+              <p class="chatbot-subtitle">Ask me a question</p>
+            </div>
+          </div>
+          <button
+            class="chatbot-close"
+            id="chatbotClose"
+            aria-label="Close chatbot"
+          >
+            <span class="close-icon">×</span>
+          </button>
+        </div>
+
+        <div class="chatbot-messages" id="chatbotMessages">
+          <div class="message bot-message">
+            <div class="message-content">
+              <p>Hey!</p>
+              <p>
+                I'm Ruchitha's Assistant. I'm here to help you connect with Ruchitha.
+              </p>
+              <p>How can I help you today?</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="chatbot-options" id="chatbotOptions">
+          <button class="option-btn" data-option="hello">
+            Just saying hello!
+          </button>
+          <button class="option-btn" data-option="connect">
+            Want to connect with Ruchitha
+          </button>
+          <button class="option-btn" data-option="hire">
+            We'd like to hire you
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript files -->
+    <script src="../JS/theme.js"></script>
+    <script src="../JS/navigation.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/chatbot.js"></script>
+
+    <!-- Vanta.js animated background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+    <script src="../JS/theme-config.js"></script>
+    <script src="../JS/vanta-background.js"></script>
+  </body>
+</html>

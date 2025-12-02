@@ -1,0 +1,437 @@
+/* 
+   Base styles and CSS variables
+   This file contains the foundation styles that apply to the entire website
+*/
+
+/* Import Google Fonts */
+@import url('https://api.fontshare.com/v2/css?f[]=telma@700&f[]=chillax@500&display=swap');
+
+/* CSS Custom Properties (Variables) for consistent theming */
+:root {
+/* Viewport units for mobile browser compatibility */
+--vh: 1vh;
+--vw: 1vw;
+
+/* Color palette - Light mode (Wine & Mauve Theme) */
+
+/* Core spectrum from your image */
+--color-primary-50:  #FBE4DB; /* blush highlight */
+--color-primary-100: #DFB8B2; /* dusty rose */
+--color-primary-200: #954F6C; /* mauve plum */
+--color-primary-300: #623B5B; /* deep muted purple */
+--color-primary-400: #2B124C; /* dark violet */
+--color-primary-500: #190019; /* near-black wine */
+
+/* Headings accents */
+--color-purple-300: #DFB8B2; /* soft dusty rose */
+--color-purple-700: #520752; /* rich dark violet */
+
+/* Neutral text (kept clean for readability) */
+--color-slate-100: #f8fafc;
+--color-slate-200: #e2e8f0;
+--color-slate-300: #cbd5e1;
+--color-slate-400: #94a3b8;
+--color-slate-500: #64748b;
+--color-slate-600: #475569;
+--color-slate-700: #334155;
+--color-slate-800: #1e293b;
+--color-slate-900: #0f172a;
+
+#react-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Crucial: places it behind all other content */
+}
+  /* Typography */
+  --font-telma: 'Telma', serif;
+  --font-chillax: 'Chillax', sans-serif;
+  
+  /* Spacing system (8px base) */
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-5: 1.25rem;  /* 20px */
+  --space-6: 1.5rem;   /* 24px */
+  --space-8: 2rem;     /* 32px */
+  --space-10: 2.5rem;  /* 40px */
+  --space-12: 3rem;    /* 48px */
+  --space-16: 4rem;    /* 64px */
+  --space-20: 5rem;    /* 80px */
+  --space-24: 6rem;    /* 96px */
+
+  /* Border radius */
+  --radius-sm: 0.5rem;   /* 8px */
+  --radius-md: 1rem;     /* 16px */
+  --radius-lg: 1.5rem;   /* 24px */
+  --radius-xl: 2rem;     /* 32px */
+  --radius-2xl: 2.5rem;  /* 40px */
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.06);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* Dark mode color overrides - Sophisticated Wine & Mauve Dark Theme */
+[data-theme="dark"] {
+  /* Dark mode background gradient - Deep wine to midnight */
+  --bg-gradient: linear-gradient(135deg, #0F0A1A 0%, #1A0B2E 25%, #2D1B69 50%, #0F0A1A 100%);
+  
+  /* Enhanced dark mode color palette */
+  --color-primary-50:  #2D1B69;  /* Deep midnight purple */
+  --color-primary-100: #4A2C7A;  /* Rich plum */
+  --color-primary-200: #6B46C1;  /* Vibrant purple */
+  --color-primary-300: #8B5CF6;  /* Bright purple */
+  --color-primary-400: #A78BFA;  /* Light purple */
+  --color-primary-500: #C4B5FD;  /* Very light purple */
+  
+  /* Dark mode text colors - High contrast for readability */
+  --color-slate-100: #F8FAFC;   /* Pure white for headings */
+  --color-slate-200: #E2E8F0;   /* Light gray for body text */
+  --color-slate-300: #CBD5E1;   /* Medium gray for secondary text */
+  --color-slate-400: #94A3B8;   /* Muted gray for captions */
+  --color-slate-500: #64748B;   /* Dark gray for disabled text */
+  --color-slate-600: #475569;   /* Very dark gray */
+  --color-slate-700: #334155;   /* Almost black */
+  --color-slate-800: #1E293B;   /* Dark background */
+  --color-slate-900: #0F172A;   /* Very dark background */
+  
+  /* Dark mode accent colors */
+  --color-purple-300: #C4B5FD;  /* Light purple for headings */
+  --color-purple-700: #8B5CF6;  /* Medium purple for accents */
+  
+  /* Dark mode shadows - More pronounced for depth */
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.3);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Prevent layout shifts during viewport changes */
+html, body {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px; /* Base font size */
+}
+
+/* Body styles with viewport fixes */
+body {
+  font-family: var(--font-chillax);
+  line-height: 1.6;
+  color: var(--color-slate-700);
+  background: transparent; /* Allow Vanta.js to control background */
+  min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+  transition: color var(--transition-normal);
+  position: relative;
+}
+
+/* Dark mode body styles */
+[data-theme="dark"] body {
+  color: var(--color-slate-200);
+  background: transparent; /* Allow Vanta.js to control background */
+}
+
+/* Dark mode overlay removed to allow Vanta.js background */
+
+
+
+
+
+
+
+/* Typography scale */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-telma);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-purple-700);
+  margin-bottom: var(--space-4);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Dark mode headings */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+  color: #E6E6FA;
+}
+
+/* Heading sizes */
+h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.125rem; }
+h6 { font-size: 1rem; }
+
+/* Paragraph styles */
+p {
+  font-family: var(--font-chillax);
+  margin-bottom: var(--space-4);
+  color: var(--color-slate-600);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] p {
+  color: var(--color-slate-200);
+}
+
+/* Link styles */
+a {
+  color: var(--color-primary-700);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: #954F6C; /* Mauve plum */
+}
+
+[data-theme="dark"] a {
+  color: var(--color-primary-300);
+}
+
+[data-theme="dark"] a:hover {
+  color: #C4B5FD; /* Light purple */
+}
+
+/* List styles */
+ul, ol {
+  margin-bottom: var(--space-4);
+  padding-left: var(--space-6);
+}
+
+li {
+  margin-bottom: var(--space-2);
+  color: var(--color-slate-600);
+}
+
+[data-theme="dark"] li {
+  color: var(--color-slate-300);
+}
+
+/* Button base styles */
+button {
+  font-family: var(--font-chillax);
+  font-weight: 500;
+  border: none;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+/* Button focus styles - only show on keyboard navigation */
+button:focus-visible {
+  outline: 2px solid var(--color-primary-400);
+  outline-offset: 2px;
+}
+
+/* Remove default focus outline for mouse clicks */
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Image styles */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+}
+
+/* Container utilities */
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.content-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* Utility classes for spacing */
+.mt-0 { margin-top: 0; }
+.mt-4 { margin-top: var(--space-4); }
+.mt-8 { margin-top: var(--space-8); }
+.mt-12 { margin-top: var(--space-12); }
+.mt-16 { margin-top: var(--space-16); }
+.mt-20 { margin-top: var(--space-20); }
+
+.mb-0 { margin-bottom: 0; }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-8 { margin-bottom: var(--space-8); }
+.mb-12 { margin-bottom: var(--space-12); }
+.mb-16 { margin-bottom: var(--space-16); }
+.mb-20 { margin-bottom: var(--space-20); }
+
+/* Utility classes for text alignment */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+/* Utility classes for display */
+.hidden { display: none; }
+.block { display: block; }
+.flex { display: flex; }
+.grid { display: grid; }
+
+/* Focus styles for accessibility */
+/* Global focus styles removed to prevent unwanted outlines on click */
+
+/* Smooth transitions for theme switching */
+* {
+  transition: background-color var(--transition-normal), 
+              color var(--transition-normal), 
+              border-color var(--transition-normal);
+}
+
+/* Mobile-first responsive system */
+/* Base styles are mobile-first by default */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .section-container,
+  .content-container {
+    padding: 0 var(--space-5);
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .section-container,
+  .content-container {
+    padding: 0 var(--space-6);
+  }
+  
+  /* Restore larger spacing on larger screens */
+  :root {
+    --space-16: 4rem;  /* 64px */
+    --space-20: 5rem;  /* 80px */
+    --space-24: 6rem;  /* 96px */
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .section-container {
+    max-width: 1200px;
+  }
+  
+  .content-container {
+    max-width: 800px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .section-container {
+    max-width: 1400px;
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 767px) {
+  /* Smaller spacing on mobile */
+  :root {
+    --space-16: 3rem;  /* 48px instead of 64px */
+    --space-20: 4rem;  /* 64px instead of 80px */
+    --space-24: 5rem;  /* 80px instead of 96px */
+  }
+  
+  .section-container,
+  .content-container {
+    padding: 0 var(--space-4);
+  }
+  
+  /* Better typography scaling for mobile */
+  h1 { font-size: clamp(2rem, 8vw, 3rem); }
+  h2 { font-size: clamp(1.75rem, 6vw, 2.5rem); }
+  h3 { font-size: clamp(1.5rem, 5vw, 2rem); }
+  
+  /* Better paragraph sizing */
+  p {
+    font-size: clamp(0.875rem, 4vw, 1rem);
+    line-height: 1.7;
+  }
+}
+
+/* Extra small devices (phones in portrait, 480px and down) */
+@media (max-width: 480px) {
+  .section-container,
+  .content-container {
+    padding: 0 var(--space-3);
+  }
+  
+  /* Even smaller spacing for very small screens */
+  :root {
+    --space-12: 2rem;  /* 32px */
+    --space-16: 2.5rem;  /* 40px */
+    --space-20: 3rem;  /* 48px */
+    --space-24: 3.5rem;  /* 56px */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

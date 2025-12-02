@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>
+      Lucid Loom: AI-Powered Dream Journal Platform - Ruchitha Nandikonda
+    </title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=telma@700&f[]=chillax@500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../CSS/base.css" />
+    <link rel="stylesheet" href="../CSS/header.css" />
+    <link rel="stylesheet" href="../CSS/project-detail-base.css" />
+    <link rel="stylesheet" href="../CSS/it-incidents.css" />
+    <link rel="stylesheet" href="../CSS/footer.css" />
+    <link rel="stylesheet" href="../CSS/chatbot.css" />
+  </head>
+  <body>
+    <!-- Navigation header -->
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-container">
+          <a href="index.html" class="nav-link">Work</a>
+          <a href="about.html" class="nav-link">About</a>
+
+          <button class="theme-toggle" aria-label="Toggle dark mode">
+            <span class="theme-icon">🌙</span>
+          </button>
+
+          <a href="designs.html" class="nav-link">Design</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Back Navigation -->
+      <section class="back-nav">
+        <div class="section-container">
+          <a href="index.html" class="back-link">
+            <span class="back-icon">←</span>
+            Back to Work
+          </a>
+        </div>
+      </section>
+
+      <!-- Project Hero -->
+      <section class="project-hero">
+        <div class="section-container">
+          <div class="project-hero-content">
+            <h1 class="project-title">Lucid Loom</h1>
+            <h2 class="project-subtitle">
+              An AI-powered dream journal platform that analyzes user dreams, generates insights through Groq and DALL-E, and provides interactive analytics to visualize dream patterns and emotional trends.
+            </h2>
+
+            <!-- Project Links -->
+            <div class="project-links">
+              <a href="https://lucid-loom.vercel.app/" target="_blank" class="project-link primary">
+                <span>🌐</span>
+                View Live Demo
+              </a>
+              <a href="https://github.com/ruchitha-nandikonda/lucid-loom" target="_blank" class="project-link secondary">
+                <span>💻</span>
+                View Code
+              </a>
+            </div>
+
+            <!-- Project Details -->
+            <section class="project-details">
+              <div class="section-container">
+                <div class="tech-stack-inline">
+                  <strong>Tech Stack:</strong> React 19 + Tailwind CSS, FastAPI (Python), PostgreSQL, Groq API (Llama 3.1), OpenAI DALL-E 3, Docker, WebSockets
+                </div>
+                <div class="details-grid">
+                  <!-- Project Info -->
+                  <div class="project-info">
+                    <div class="info-card">
+                      <h3 class="info-title">Key Results</h3>
+                      <ul class="tools-list">
+                        <li>
+                          Integrated Groq (Llama 3.1) and DALL-E 3 for AI-powered dream interpretation and creative imagery generation.
+                        </li>
+                        <li>
+                          Built secure JWT authentication with OTP-based email verification using SendGrid and SMTP fallback.
+                        </li>
+                        <li>
+                          Created interactive analytics dashboard with Recharts enabling users to visualize dream patterns and emotional trends.
+                        </li>
+                        <li>
+                          Engineered clean API layer with FastAPI, using WebSockets for real-time updates and SQLAlchemy for database operations.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <!-- Overview Section -->
+      <section class="content-section">
+        <div class="section-container">
+          <h2 class="section-title">Overview</h2>
+          <div class="content-text">
+            <p>
+              Dream journaling helps people understand their subconscious, but traditional journals are static and don't provide insights. Users write down dreams but struggle to find patterns, understand emotional connections, or visualize their dream experiences.
+            </p>
+            <p>
+              Lucid Loom transforms dream journaling into an interactive, AI-powered experience. Users record their dreams, and the platform uses Groq (Llama 3.1) to analyze content, identify emotions, and generate interpretations. DALL-E 3 creates visual representations of dreams, while an analytics dashboard reveals patterns and trends over time.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Challenge Section -->
+      <div class="challenge-container">
+        <h2 class="section-title">The Challenge</h2>
+        <div class="challenge-row">
+          <div class="challenge-label">
+            <h3><strong>Static Dream Journals</strong></h3>
+          </div>
+          <div class="challenge-description">
+            <p>
+              Traditional dream journals are just text entries with no analysis or insights. Users can't easily identify patterns, emotional trends, or connections between dreams over time.
+            </p>
+          </div>
+        </div>
+
+        <div class="challenge-row">
+          <div class="challenge-label">
+            <h3><strong>Lack of AI Interpretation</strong></h3>
+          </div>
+          <div class="challenge-description">
+            <p>
+              Without AI analysis, users must manually interpret their dreams or seek external help. There's no automated system to provide insights, emotional analysis, or creative visualizations.
+            </p>
+          </div>
+        </div>
+
+        <div class="challenge-row">
+          <div class="challenge-label">
+            <h3><strong>No Visual Representation</strong></h3>
+          </div>
+          <div class="challenge-description">
+            <p>
+              Dreams are often visual experiences, but traditional journals only capture text. Users can't see visual representations of their dreams or generate creative imagery based on dream content.
+            </p>
+          </div>
+        </div>
+
+        <div class="challenge-row">
+          <div class="challenge-label">
+            <h3><strong>Complex AI Integration</strong></h3>
+          </div>
+          <div class="challenge-description">
+            <p>
+              Integrating multiple AI services (Groq for text analysis, DALL-E for image generation) requires careful API orchestration, error handling, and cost optimization while maintaining fast response times.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- The Solution Section -->
+      <section class="content-section process-section">
+        <div class="section-container">
+          <h2 class="section-title">The Solution</h2>
+          <div class="content-text">
+            <p>
+              I built a full-stack AI application that combines React for the frontend, FastAPI for the backend, and multiple AI services for dream analysis and visualization. The platform provides real-time updates, secure authentication, and comprehensive analytics.
+            </p>
+            <p><strong>AI-Powered Dream Analysis</strong></p>
+            <p>
+              Integrated Groq API (Llama 3.1) to analyze dream content, identify emotions, and generate interpretations. The system processes natural language descriptions and provides structured insights including emotional analysis, themes, and potential meanings.
+            </p>
+          </div>
+
+          <div class="content-text">
+            <p><strong>Creative Image Generation</strong></p>
+            <p>
+              Used OpenAI DALL-E 3 to generate visual representations of dreams based on their content. The system creates unique, creative imagery that helps users visualize their dream experiences.
+            </p>
+          </div>
+
+          <div class="content-text">
+            <p><strong>Secure Authentication System</strong></p>
+            <p>
+              Implemented JWT-based authentication with OTP email verification using SendGrid and SMTP fallback. This ensures secure user accounts while providing a smooth onboarding experience.
+            </p>
+          </div>
+
+          <div class="content-text">
+            <p><strong>Interactive Analytics Dashboard</strong></p>
+            <p>
+              Built with Recharts, the dashboard visualizes:
+            </p>
+            <ul class="process-list">
+              <li>
+                <strong class="highlight">Dream Patterns:</strong>
+                Trends in dream frequency, themes, and emotional states over time.
+              </li>
+              <li>
+                <strong class="highlight">Emotional Trends:</strong>
+                Visualization of emotional patterns across different dreams.
+              </li>
+              <li>
+                <strong class="highlight">Theme Analysis:</strong>
+                Identification of recurring themes and topics in dreams.
+              </li>
+              <li>
+                <strong class="highlight">Time-Based Insights:</strong>
+                Correlation between dream content and time periods.
+              </li>
+            </ul>
+          </div>
+
+          <div class="content-text">
+            <p><strong>Real-Time Updates with WebSockets</strong></p>
+            <p>
+              Implemented WebSocket connections for real-time updates when AI processing completes, providing instant feedback to users without page refreshes.
+            </p>
+          </div>
+
+          <div class="content-text">
+            <p><strong>Clean API Architecture</strong></p>
+            <p>
+              Built a FastAPI backend with Python, using Pydantic for data validation, SQLAlchemy for database operations, and httpx for external API calls. The architecture ensures modularity, scalability, and maintainability.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- The Impact Section -->
+      <section class="content-section process-section">
+        <div class="section-container">
+          <h2 class="section-title">The Impact</h2>
+          <div class="content-text">
+            <p>
+              Lucid Loom transforms dream journaling from a passive recording activity into an interactive, AI-enhanced experience that provides meaningful insights and visualizations.
+            </p>
+          </div>
+        </div>
+
+        <!-- Impact Bento Grid -->
+        <div class="impact-bento-container">
+          <div class="impact-bento-grid">
+            <div class="bento-card bento-large">
+              <div class="bento-number">AI-Powered</div>
+              <div class="bento-label">Dream Analysis</div>
+              <div class="bento-description">
+                Instant interpretations and emotional insights using Groq (Llama 3.1).
+              </div>
+            </div>
+
+            <div class="bento-card bento-medium">
+              <div class="bento-number">Visual</div>
+              <div class="bento-label">Dream Imagery</div>
+              <div class="bento-description">
+                Creative visual representations generated with DALL-E 3.
+              </div>
+            </div>
+
+            <div class="bento-card bento-small">
+              <div class="bento-number">Real-Time</div>
+              <div class="bento-label">Updates</div>
+              <div class="bento-description">
+                WebSocket connections for instant AI processing feedback.
+              </div>
+            </div>
+
+            <div class="bento-card bento-tall">
+              <div class="bento-number">Interactive</div>
+              <div class="bento-label">Analytics Dashboard</div>
+              <div class="bento-description">
+                Recharts visualizations showing dream patterns and emotional trends.
+              </div>
+            </div>
+
+            <div class="bento-card bento-feature">
+              <div class="bento-number">Secure</div>
+              <div class="bento-label">Authentication</div>
+              <div class="bento-description">
+                JWT with OTP email verification for secure user accounts.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-container">
+          <div class="approach-list">
+            <div class="approach-item">
+              <h4>Enhanced Dream Understanding</h4>
+              <p>
+                AI-powered analysis provides users with structured insights, emotional analysis, and interpretations that help them understand their dreams better than manual journaling.
+              </p>
+            </div>
+
+            <div class="approach-item">
+              <h4>Visual Dream Experience</h4>
+              <p>
+                DALL-E 3 integration creates unique visual representations of dreams, making the journaling experience more engaging and memorable.
+              </p>
+            </div>
+
+            <div class="approach-item">
+              <h4>Pattern Recognition</h4>
+              <p>
+                Analytics dashboard reveals trends, recurring themes, and emotional patterns over time, helping users identify connections they might miss in text-only journals.
+              </p>
+            </div>
+
+            <div class="approach-item">
+              <h4>Seamless User Experience</h4>
+              <p>
+                Real-time updates, responsive design, and smooth interactions create an intuitive platform that makes dream journaling enjoyable and insightful.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Learnings Section -->
+      <section class="content-section learnings-section">
+        <div class="section-container">
+          <h2 class="section-title">Key Learnings</h2>
+          <div class="content-text">
+            <p>
+              This project advanced my skills in AI integration, full-stack development with Python, and building real-time, data-driven applications.
+            </p>
+          </div>
+
+          <div class="numbered-learnings">
+            <div class="learning-item">
+              <div class="learning-number">1</div>
+              <div class="learning-content">
+                <h3 class="learning-title">AI API Integration and Orchestration</h3>
+                <p class="learning-description">
+                  Learned to integrate multiple AI services (Groq and DALL-E) with proper error handling, rate limiting, and cost optimization. Gained experience in API orchestration, managing async workflows, and handling AI response processing.
+                </p>
+              </div>
+            </div>
+
+            <div class="learning-item">
+              <div class="learning-number">2</div>
+              <div class="learning-content">
+                <h3 class="learning-title">FastAPI and Python Backend Development</h3>
+                <p class="learning-description">
+                  Built a production-ready FastAPI backend with SQLAlchemy, Pydantic models, JWT authentication, and WebSocket support. Learned to structure Python applications for scalability and maintainability.
+                </p>
+              </div>
+            </div>
+
+            <div class="learning-item">
+              <div class="learning-number">3</div>
+              <div class="learning-content">
+                <h3 class="learning-title">Data Visualization and Analytics</h3>
+                <p class="learning-description">
+                  Created interactive analytics dashboards with Recharts, processing time-series data to reveal patterns and trends. Learned to design visualizations that provide meaningful insights to users.
+                </p>
+              </div>
+            </div>
+
+            <div class="learning-item">
+              <div class="learning-number">4</div>
+              <div class="learning-content">
+                <h3 class="learning-title">Real-Time Communication</h3>
+                <p class="learning-description">
+                  Implemented WebSocket connections for real-time updates, learning to manage persistent connections, handle connection lifecycle, and provide instant feedback for long-running AI operations.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Next Project -->
+      <section class="next-project">
+        <div class="section-container">
+          <a href="project-it-incidents.html" class="next-project-link">
+            <div class="next-project-content">
+              <span class="next-label">Next Project</span>
+              <h3 class="next-title">IT Incidents Management</h3>
+              <span class="next-arrow">→</span>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="social-links">
+          <a
+            href="https://linkedin.com/in/ruchitha-nandikonda"
+            target="_blank"
+            class="social-link"
+          >
+            <span class="social-icon">💼</span>
+            <span class="social-text">LinkedIn</span>
+            <span class="external-icon">↗</span>
+          </a>
+          <a
+            href="https://github.com/ruchitha-nandikonda"
+            target="_blank"
+            class="social-link"
+          >
+            <span class="social-icon">💻</span>
+            <span class="social-text">GitHub</span>
+            <span class="external-icon">↗</span>
+          </a>
+          <a href="mailto:ruchithajobit@gmail.com" class="social-link">
+            <span class="social-icon">✉️</span>
+            <span class="social-text">Email</span>
+          </a>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="copyright">© 2024 Ruchitha Nandikonda. Built with care.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Chatbot Contact Section -->
+    <div class="chatbot-overlay" id="chatbotOverlay">
+      <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+          <div class="chatbot-header-content">
+            <div class="chatbot-title-group">
+              <h3 class="chatbot-title">Ruchitha's Assistant</h3>
+              <p class="chatbot-subtitle">Ask me a question</p>
+            </div>
+          </div>
+          <button
+            class="chatbot-close"
+            id="chatbotClose"
+            aria-label="Close chatbot"
+          >
+            <span class="close-icon">×</span>
+          </button>
+        </div>
+
+        <div class="chatbot-messages" id="chatbotMessages">
+          <div class="message bot-message">
+            <div class="message-content">
+              <p>Hey!</p>
+              <p>
+                I'm Ruchitha's Assistant. I'm here to help you connect with Ruchitha.
+              </p>
+              <p>How can I help you today?</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="chatbot-options" id="chatbotOptions">
+          <button class="option-btn" data-option="hello">
+            Just saying hello!
+          </button>
+          <button class="option-btn" data-option="connect">
+            Want to connect with Ruchitha
+          </button>
+          <button class="option-btn" data-option="hire">
+            We'd like to hire you
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript files -->
+    <script src="../JS/theme.js"></script>
+    <script src="../JS/navigation.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/chatbot.js"></script>
+
+    <!-- Vanta.js animated background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+    <script src="../JS/theme-config.js"></script>
+    <script src="../JS/vanta-background.js"></script>
+  </body>
+</html>
+

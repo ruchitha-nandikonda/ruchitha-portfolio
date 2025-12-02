@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>
+      IT Incident Analysis: From Data Chaos to Strategic Clarity - Ruchitha
+      Nandikonda
+    </title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=telma@700&f[]=chillax@500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../CSS/base.css" />
+    <link rel="stylesheet" href="../CSS/header.css" />
+    <link rel="stylesheet" href="../CSS/project-detail-base.css" />
+    <link rel="stylesheet" href="../CSS/it-incidents.css" />
+    <link rel="stylesheet" href="../CSS/footer.css" />
+    <link rel="stylesheet" href="../CSS/chatbot.css" />
+  </head>
+  <body>
+    <!-- Navigation header -->
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-container">
+          <a href="index.html" class="nav-link">Work</a>
+          <a href="about.html" class="nav-link">About</a>
+
+          <button class="theme-toggle" aria-label="Toggle dark mode">
+            <span class="theme-icon">🌙</span>
+          </button>
+
+          <a href="designs.html" class="nav-link">Design</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Back Navigation -->
+      <section class="back-nav">
+        <div class="section-container">
+          <a href="index.html" class="back-link">
+            <span class="back-icon">←</span>
+            Back to Work
+          </a>
+        </div>
+      </section>
+
+      <!-- Project Hero -->
+      <section class="project-hero">
+        <div class="section-container">
+          <div class="project-hero-content">
+            <h1 class="project-title">IT Incident Analysis</h1>
+            <h2 class="project-subtitle">
+              A comprehensive Power BI dashboard that transforms raw incident
+              logs into an interactive command center for strategic
+              decision-making.
+            </h2>
+
+            <!-- Project Details -->
+            <section class="project-details">
+              <div class="section-container">
+                <div class="tech-stack-inline">
+                  <strong>Tech Stack:</strong> Power BI
+                </div>
+                <div class="details-grid">
+                  <!-- Project Info -->
+                  <div class="project-info">
+                    <div class="info-card">
+                      <h3 class="info-title">Key Results</h3>
+                      <ul class="tools-list">
+                        <li>
+                          Identified Critical Inefficiencies by pinpointing the
+                          top IT service categories with the highest
+                          reassignment counts.
+                        </li>
+                        <li>
+                          Identified top 10 frequent callers for targeted training
+                          and support to reduce incident rates.
+                        </li>
+                        <li>
+                          Established Key Performance Benchmarks, including a
+                          50-day average resolution duration for active
+                          incidents and a total reassignment frequency of 2,041.
+                        </li>
+                        <li>
+                          Mapped incident concentrations by geographic area and
+                          assignment group workload to identify resource allocation needs.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div class="project-hero-image">
+            <img
+              src="/IT-incident-dashboard.png"
+              alt="IT Incident Analysis Dashboard"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Overview Section -->
+      <section class="content-section">
+        <div class="section-container">
+          <h2 class="section-title">Overview</h2>
+          <div class="content-text">
+            <p>
+              IT support teams are flooded with incident data from ticketing
+              systems, but this raw data often creates more noise than signal.
+              Without a clear way to see trends, patterns, and bottlenecks,
+              managers are forced to make decisions based on gut feelings rather
+              than evidence, leading to inefficient resource allocation and
+              recurring problems.
+            </p>
+            <p>
+              I built an IT Incident Management Dashboard using Power BI, transforming
+              a public, unstructured dataset into an interactive solution that provides
+              IT leadership with comprehensive visibility for data-driven decision-making.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Challenge Section -->
+      <div class="challenge-container">
+        <h2 class="section-title">The Challenge</h2>
+        <div class="challenge-row">
+          <div class="challenge-label">
+            <h3><strong>No Performance Visibility</strong></h3>
+          </div>
+          <div class="challenge-description">
+            <p>
+              Managers lack the ability to track crucial metrics like average
+              resolution time against target benchmarks, making it impossible to
+              accurately assess team performance or identify delays in the
+              incident lifecycle.
+            </p>
+          </div>
+        </div>
+
+        <div class="challenge-row">
+          <div class="challenge-label">
+            <h3><strong>Inefficient Ticket Routing</strong></h3>
+          </div>
+          <div class="challenge-description">
+            <p>
+              Incidents are frequently reassigned between teams, indicating
+              issues with initial routing or a lack of clarity on team
+              responsibilities. This churn wastes valuable time and delays
+              resolutions.
+            </p>
+          </div>
+        </div>
+
+        <div class="challenge-row">
+          <div class="challenge-label">
+            <h3><strong>Operational Blind Spots</strong></h3>
+          </div>
+          <div class="challenge-description">
+            <p>
+              There is no clear view of workload distribution across different
+              assignment groups or geographic regions. This prevents managers
+              from strategically allocating resources to a balanced workload and
+              addressing regional hotspots.
+            </p>
+          </div>
+        </div>
+
+        <div class="challenge-row">
+          <div class="challenge-label">
+            <h3><strong>Reactive Problem Solving</strong></h3>
+          </div>
+          <div class="challenge-description">
+            <p>
+              Teams are unable to easily identify the most common incident
+              categories or the users who generate the most tickets. They remain
+              stuck in a reactive loop, repeatedly fixing the same issues
+              instead of addressing the root cause.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- The Solution Section -->
+      <section class="content-section process-section">
+        <div class="section-container">
+          <h2 class="section-title">The Solution</h2>
+          <div class="content-text">
+            <p>
+              I developed a multi-faceted Power BI dashboard that serves as a
+              single source of truth for incident management. The solution was
+              built from the ground up, starting with a meticulous data cleaning
+              and standardization process within Power BI to ensure data
+              integrity. The solution provides several key views:
+            </p>
+            <p><strong>An Interactive Command Center</strong></p>
+            <p>
+              The main dashboard provides an at-a-glance overview of the entire
+              incident ecosystem. Stakeholders can track opened vs. closed
+              incidents over time, monitor the average resolution duration (50
+              days), and see the overall reassignment frequency. An interactive
+              slicer allows for filtering by incident state (e.g., Active,
+              Closed, Awaiting User Info), providing instant clarity on the
+              current situation.
+            </p>
+          </div>
+
+          <div class="content-text">
+            <p><strong>Deep-Dive Diagnostic Tools</strong></p>
+            <p>
+              To move beyond high-level metrics, I created specific views to
+              diagnose root causes. These visuals allow managers to:
+            </p>
+            <ul class="process-list">
+              <li>
+                <strong class="highlight">Analyze Reassignment Trends:</strong>
+                Isolate the top 5 incident categories with the highest
+                reassignment counts to investigate why tickets are being
+                misrouted.
+              </li>
+              <li>
+                <strong class="highlight"
+                  >Identify Incident-Prone Areas:</strong
+                >
+                Use pie and donut charts to pinpoint the top 10 categories and
+                subcategories that generate the most incidents, guiding
+                preventative efforts.
+              </li>
+              <li>
+                <strong class="highlight">Pinpoint High-Volume Callers:</strong>
+                Visualize incident counts by caller ID to identify users who may
+                need additional training or support.
+              </li>
+            </ul>
+          </div>
+
+          <div class="content-text">
+            <p><strong>Strategic Resource Allocation Views</strong></p>
+            <p>
+              To solve the challenge of operational blind spots, I built visuals
+              specifically for resource management:
+            </p>
+            <ul class="process-list">
+              <li>
+                <strong class="highlight">Assignment Group Workload:</strong> A
+                horizontal bar chart breaks down the number of incidents handled
+                by each assignment group, making it easy to spot overloaded
+                teams or those with capacity.
+              </li>
+              <li>
+                <strong class="highlight"
+                  >Geographic Incident Distribution:</strong
+                >
+                An interactive map visualizes incident categories by location,
+                highlighting regional hotspots where targeted resources or
+                infrastructure improvements may be needed.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- The Impact Section -->
+      <section class="content-section process-section">
+        <div class="section-container">
+          <h2 class="section-title">The Impact</h2>
+          <div class="content-text">
+            <p>
+              The dashboard provides actionable insights for strategic management
+              and operational improvements.
+            </p>
+          </div>
+        </div>
+
+        <!-- Impact Bento Grid - Outside container for full width -->
+        <div class="impact-bento-container">
+          <div class="impact-bento-grid">
+            <!-- Row 1: 2,041 (2x1) | 50 Days (1x1) + Top 5 (1x1) -->
+            <div class="bento-card bento-large">
+              <div class="bento-number">2,041</div>
+              <div class="bento-label">Reassignment Incidents</div>
+              <div class="bento-description">
+                Total incidents requiring reassignment between teams.
+              </div>
+            </div>
+
+            <div class="bento-card bento-medium">
+              <div class="bento-number">15.24%</div>
+              <div class="bento-label">Category 34</div>
+              <div class="bento-description">
+                Highest incident volume category requiring priority attention.
+              </div>
+            </div>
+
+            <div class="bento-card bento-small">
+              <div class="bento-number">Top 5</div>
+              <div class="bento-label">Problem Categories</div>
+              <div class="bento-description">
+                Top 5 categories with highest reassignment rates for investigation.
+              </div>
+            </div>
+
+            <!-- Row 2: 15.24% (1x1) | 38.83% (1x1) -->
+            <div class="bento-card bento-tall">
+              <div class="bento-number">50 days</div>
+              <div class="bento-label">Average Resolution Duration</div>
+              <div class="bento-description">
+                Established clear baseline for performance tracking.
+              </div>
+            </div>
+
+            <div class="bento-card bento-feature">
+              <div class="bento-number">38.83%</div>
+              <div class="bento-label">Subcategory 223</div>
+              <div class="bento-description">
+                Subcategory with highest incident concentration.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-container">
+          <div class="approach-list">
+            <div class="approach-item">
+              <h4>Improved Incident Routing</h4>
+              <p>
+                Identified top 5 categories with high reassignment rates,
+                enabling leaders to refine routing protocols and improve
+                first-contact resolution.
+              </p>
+            </div>
+
+            <div class="approach-item">
+              <h4>Proactive Problem Prevention</h4>
+              <p>
+                Identified frequent callers and top incident categories to
+                prioritize user training and address root causes, reducing
+                future incident volume.
+              </p>
+            </div>
+
+            <div class="approach-item">
+              <h4>Optimized Resource Allocation</h4>
+              <p>
+                Visualized team workloads and geographic incident patterns to
+                allocate personnel and resources where they're needed most.
+              </p>
+            </div>
+
+            <div class="approach-item">
+              <h4>Performance Benchmarking</h4>
+              <p>
+                Established measurable benchmarks (50-day average resolution time,
+                2,041 reassignments) to set realistic goals and track progress.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Learnings Section -->
+      <section class="content-section learnings-section">
+        <div class="section-container">
+          <h2 class="section-title">Key Learnings</h2>
+          <div class="content-text">
+            <p>
+              This project was a deep dive into end-to-end business intelligence
+              development and solidified several key skills:
+            </p>
+          </div>
+
+          <div class="numbered-learnings">
+            <div class="learning-item">
+              <div class="learning-number">1</div>
+              <div class="learning-content">
+                <h3 class="learning-title">Mastering the Full BI Lifecycle</h3>
+                <p class="learning-description">
+                  Managed the full BI lifecycle in Power BI: data cleaning in Power
+                  Query, building a logical data model, and writing DAX measures
+                  for KPIs like reassignment frequency.
+                </p>
+              </div>
+            </div>
+
+            <div class="learning-item">
+              <div class="learning-number">2</div>
+              <div class="learning-content">
+                <h3 class="learning-title">The Art of Data Storytelling</h3>
+                <p class="learning-description">
+                  Designed a cohesive, multi-page dashboard that guides users from
+                  high-level overview to granular details, answering key business
+                  questions at each step.
+                </p>
+              </div>
+            </div>
+
+            <div class="learning-item">
+              <div class="learning-number">3</div>
+              <div class="learning-content">
+                <h3 class="learning-title">
+                  Translating Data into Business Strategy
+                </h3>
+                <p class="learning-description">
+                  Connected data points to strategic actions by anticipating
+                  manager questions and designing visuals that provide clear
+                  answers and actionable recommendations.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Next Project -->
+      <section class="next-project">
+        <div class="section-container">
+          <a href="project-agile-hrms.html" class="next-project-link">
+            <div class="next-project-content">
+              <span class="next-label">Next Project</span>
+              <h3 class="next-title">Agile HRMS</h3>
+              <span class="next-arrow">→</span>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="social-links">
+          <a
+            href="https://linkedin.com/in/ruchitha-nandikonda"
+            target="_blank"
+            class="social-link"
+          >
+            <span class="social-icon">💼</span>
+            <span class="social-text">LinkedIn</span>
+            <span class="external-icon">↗</span>
+          </a>
+          <a
+            href="https://github.com/ruchitha-nandikonda"
+            target="_blank"
+            class="social-link"
+          >
+            <span class="social-icon">💻</span>
+            <span class="social-text">GitHub</span>
+            <span class="external-icon">↗</span>
+          </a>
+          <a href="mailto:ruchithajobit@gmail.com" class="social-link">
+            <span class="social-icon">✉️</span>
+            <span class="social-text">Email</span>
+          </a>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="copyright">© 2024 Ruchitha Nandikonda. Built with care.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Chatbot Contact Section -->
+    <div class="chatbot-overlay" id="chatbotOverlay">
+      <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+          <div class="chatbot-header-content">
+            <div class="chatbot-title-group">
+              <h3 class="chatbot-title">Ruchitha's Assistant</h3>
+              <p class="chatbot-subtitle">Ask me a question</p>
+            </div>
+          </div>
+          <button
+            class="chatbot-close"
+            id="chatbotClose"
+            aria-label="Close chatbot"
+          >
+            <span class="close-icon">×</span>
+          </button>
+        </div>
+
+        <div class="chatbot-messages" id="chatbotMessages">
+          <div class="message bot-message">
+            <div class="message-content">
+              <p>Hey!</p>
+              <p>
+                I'm Ruchitha's Assistant. I'm here to help you connect with Ruchitha.
+              </p>
+              <p>How can I help you today?</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="chatbot-options" id="chatbotOptions">
+          <button class="option-btn" data-option="hello">
+            Just saying hello!
+          </button>
+          <button class="option-btn" data-option="connect">
+            Want to connect with Ruchitha
+          </button>
+          <button class="option-btn" data-option="hire">
+            We'd like to hire you
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript files -->
+    <script src="../JS/theme.js"></script>
+    <script src="../JS/navigation.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/chatbot.js"></script>
+
+    <!-- Vanta.js animated background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+    <script src="../JS/theme-config.js"></script>
+    <script src="../JS/vanta-background.js"></script>
+  </body>
+</html>

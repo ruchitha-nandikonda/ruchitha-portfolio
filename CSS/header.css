@@ -1,0 +1,219 @@
+/* 
+   Header and navigation styles
+   This file handles the sticky header, navigation menu, and theme toggle
+*/
+
+/* Main header container - fixed at top of page */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: transparent;
+  transition: background-color var(--transition-normal);
+  padding: var(--space-4) 0;
+}
+
+
+
+
+/* Navigation container */
+.nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Navigation items container - Mobile First */
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-normal);
+  background: rgba(105, 59, 105, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(105, 59, 105, 0.15);
+}
+
+[data-theme="dark"] .nav-container {
+  background: rgba(45, 27, 105, 0.3);
+  border-color: rgba(139, 92, 246, 0.2);
+}
+
+/* Navigation background when scrolled */
+.header.scrolled .nav-container {
+  background: rgba(105, 59, 105, 0.15);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-soft);
+  border-color: rgba(105, 59, 105, 0.2);
+}
+
+[data-theme="dark"] .header.scrolled .nav-container {
+  background: rgba(45, 27, 105, 0.4);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border-color: rgba(139, 92, 246, 0.25);
+}
+
+/* Individual navigation links - Mobile First */
+.nav-link {
+  font-family: var(--font-chillax);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-slate-600);
+  text-decoration: none;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  position: relative;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Dark mode navigation links */
+[data-theme="dark"] .nav-link {
+  color: var(--color-slate-200);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Navigation link hover states */
+.nav-link:hover {
+  color: #954F6C; /* Mauve plum */
+  background: rgba(149, 79, 108, 0.15);
+}
+
+[data-theme="dark"] .nav-link:hover {
+  color: #C4B5FD; /* Light purple */
+  background: rgba(196, 181, 253, 0.15);
+  box-shadow: 0 2px 8px rgba(196, 181, 253, 0.25);
+}
+
+/* Active navigation link */
+.nav-link.active {
+  color: var(--color-primary-700);
+  background: rgba(105, 59, 105, 0.2);
+}
+
+[data-theme="dark"] .nav-link.active {
+  color: var(--color-primary-300);
+  background: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.4);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  padding: var(--space-2);
+  border-radius: var(--radius-full);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+/* Theme toggle hover state */
+.theme-toggle:hover {
+  background: rgba(105, 59, 105, 0.1);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  background: rgba(139, 92, 246, 0.2);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+}
+
+/* Theme toggle icon */
+.theme-icon {
+  font-size: 1.125rem;
+  transition: transform var(--transition-fast);
+}
+
+/* Icon rotation on hover */
+.theme-toggle:hover .theme-icon {
+  transform: rotate(15deg);
+}
+
+/* Tablet and up responsive navigation */
+@media (min-width: 768px) {
+  .nav-container {
+    gap: var(--space-8);
+    padding: var(--space-3) var(--space-6);
+  }
+  
+  .nav-link {
+    font-size: 0.875rem;
+    padding: var(--space-2) var(--space-3);
+  }
+  
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+    padding: var(--space-2);
+  }
+  
+  .theme-icon {
+    font-size: 1.125rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .nav-container {
+    gap: var(--space-3);
+    padding: var(--space-2) var(--space-3);
+  }
+  
+  /* Better touch targets on very small screens */
+  .nav-link {
+    padding: var(--space-2);
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .theme-toggle {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Focus states for accessibility - only show on keyboard navigation */
+.nav-link:focus-visible,
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--color-primary-400);
+  outline-offset: 2px;
+}
+
+/* Remove default focus outline for mouse clicks */
+.nav-link:focus:not(:focus-visible),
+.theme-toggle:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Smooth scroll offset for fixed header */
+html {
+  scroll-padding-top: 100px;
+}
+
+/* Animation for header appearance */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.header {
+  animation: slideDown 0.3s ease-out;
+}

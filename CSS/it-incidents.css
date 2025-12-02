@@ -1,0 +1,1001 @@
+/* 
+   IT Incidents Project Specific Styles
+   Styles specific to the IT Incidents project page
+   Updated: 2024-12-19
+   
+   ========================================
+   TABLE OF CONTENTS
+   ========================================
+   1. Feedback Form & Stepper
+   2. n8n Window Section
+   3. SVG Images Section
+   4. Responsive Design
+   ========================================
+*/
+
+/* ========================================
+   1. FEEDBACK FORM & STEPPER
+   ======================================== */
+
+/* Feedback Form Container */
+.feedback-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: clamp(1rem, 4vw, 2rem);
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  font-family: 'Chillax', sans-serif;
+}
+
+/* Progress Bar */
+.progress-container {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background-color: rgba(16, 185, 129, 0.2);
+  border-radius: 3px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+  width: 16.66%; /* 1/6 for step 1 */
+}
+
+.step-counter {
+  font-size: 18px;
+  color: #065f46;
+  font-weight: 600;
+}
+
+/* ===== MACOS FORM WINDOW ===== */
+/* Main form window container */
+.form-window {
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden; 
+  margin-bottom: 2rem;
+  background: #f8f9fa;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* The top bar that holds the buttons */
+.form-window .window-top-bar {
+  background-color: #f0f0f0;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  justify-content: flex-start;
+}
+
+.form-window .window-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+/* Styling for each button */
+.form-window .window-button {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Button colors */
+.form-window .red { background-color: #ff5f57; }
+.form-window .yellow { background-color: #febc2e; }
+.form-window .green { background-color: #28c840; }
+
+/* Button hover effects */
+.form-window .window-button:hover {
+  transform: scale(1.1);
+}
+
+/* Styling for the icons (initially hidden) */
+.form-window .button-icon {
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #5a2a27;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  cursor: pointer;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Show the icon on hover */
+.form-window .window-button:hover .button-icon {
+  opacity: 1;
+}
+
+/* Icon-specific adjustments for better centering */
+.form-window .minimize-icon {
+  line-height: 10px;
+}
+.form-window .maximize-icon {
+  line-height: 12px;
+}
+
+/* Form content area */
+.form-content {
+  background: #f8f9fa;
+  padding: 0;
+}
+
+/* Main Content Card - Glassmorphism */
+.feedback-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 0;
+  min-height: 450px;
+}
+
+/* Hero Container Styling - Full Window */
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  padding: 2rem;
+  text-align: center;
+  background: #dcfce7;
+}
+
+.hero-container.hidden {
+  display: none;
+}
+
+/* Hide progress bar on hero step */
+.progress-container.hidden {
+  display: none;
+}
+
+.hero-container .hero-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero-container .hero-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  background: linear-gradient(135deg, #064e3b, #0f766e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: clamp(0.5rem, 2vh, 1rem);
+  line-height: 1.1;
+}
+
+.hero-container .hero-subtitle {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: #0f766e;
+  margin-bottom: clamp(1rem, 3vh, 1.5rem);
+}
+
+.hero-container .hero-description {
+  font-family: 'Gabriola', cursive;
+  font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+  color: #0f766e;
+  margin-bottom: clamp(0.75rem, 2vh, 1rem);
+}
+
+.hero-container .hero-tagline {
+  font-family: 'Gabriola', cursive;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  color: #064e3b;
+  opacity: 0.8;
+  margin-bottom: clamp(1.5rem, 4vh, 2rem);
+}
+
+.hero-container .cta-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.hero-container .cta-button {
+  background: linear-gradient(135deg, #059669, #10b981);
+  color: white;
+  border: none;
+  padding: clamp(0.9rem, 2vw, 1.2rem) clamp(2rem, 5vw, 2.5rem);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  border-radius: 50px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-container .cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.hero-container .cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4);
+}
+
+.hero-container .cta-button:hover::before {
+  left: 100%;
+}
+
+/* Question Banner */
+.question-banner {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  padding: 24px;
+  border-radius: 16px;
+  margin-bottom: 28px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+}
+
+.question-banner h2 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 500;
+  font-family: "Gabriola";
+}
+
+.subtitle {
+  margin: 8px 0 0 0;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+}
+
+/* Options Container */
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.option-btn {
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 18px 24px;
+  font-size: 16px;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  font-family: 'Chillax', sans-serif;
+  backdrop-filter: blur(10px);
+}
+
+.option-btn:hover {
+  border-color: #10b981;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.2);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.option-btn:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.option-btn.selected {
+  background: #dcfce7;
+  color: #065f46;
+  border-color: #10b981;
+  border-width: 3px;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+}
+
+/* ========================================
+   2. n8n WINDOW SECTION
+   ======================================== */
+
+/* n8n Window Section */
+.n8n-window {
+  border-radius: 20px;
+  overflow: hidden;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin: var(--space-8) auto;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.n8n-content {
+  padding: 0;
+  display: block;
+  background: #f8f9fa;
+}
+
+.n8n-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 0;
+}
+
+/* ========================================
+   3. SVG IMAGES SECTION
+   ======================================== */
+
+/* SVG Images Section */
+.svg-images-section {
+  margin: var(--space-16) 0;
+  display: flex;
+  justify-content: center;
+}
+
+.svg-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  max-width: 1000px;
+  width: 100%;
+}
+
+.svg-window {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.svg-content {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.svg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+/* ========================================
+   4. CHALLENGE SECTION - Quick Mic Drop Style
+   ======================================== */
+
+/* --- Main Container for the Challenge Section --- */
+.challenge-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* This creates space between the challenge cards */
+  padding: var(--space-12) 0;
+}
+
+.challenge-container .section-title {
+  padding: 0 2rem;
+}
+
+/* --- Individual Challenge Row Styling --- */
+.challenge-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Creates a 1:2 ratio for the columns */
+  gap: 2rem; /* Space between the label and the description */
+  align-items: center;
+  background-color: transparent;
+  padding: 2rem;
+  border-radius: 12px;
+  position: relative; /* Necessary for z-index to work */
+  
+  /* --- This is the transition for the smooth hover effect --- */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* --- The "Zoom to Z-Index" Hover Effect --- */
+.challenge-row:hover {
+  transform: scale(1.05); /* Zooms the card */
+  z-index: 10; /* Brings the card to the front */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Adds a more pronounced shadow */
+  cursor: pointer;
+}
+
+/* --- Styling for the Left Column (The Label) --- */
+.challenge-label h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #1a202c;
+  font-family: var(--font-chillax);
+  text-align: center;
+}
+
+[data-theme="dark"] .challenge-label h3 {
+  color: var(--color-slate-100);
+}
+
+/* --- Styling for the Right Column (The Description) --- */
+.challenge-description p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+[data-theme="dark"] .challenge-description p {
+  color: var(--color-slate-300);
+}
+
+/* --- Responsive Design for Challenge Section --- */
+@media (max-width: 768px) {
+  .challenge-row {
+    grid-template-columns: 1fr; /* Stacks the columns on top of each other */
+    gap: 1rem;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .challenge-container .section-title {
+    padding: 0 1rem;
+  }
+}
+
+/* ========================================
+   ALTERNATIVE: Timeline Style (if needed)
+   ======================================== */
+
+.challenge-section .timeline {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 0 4rem 0;
+}
+
+/* The central vertical line */
+.challenge-section .timeline::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background: linear-gradient(180deg, var(--color-primary-400) 0%, var(--color-primary-500) 50%, var(--color-primary-400) 100%);
+  top: 15px;
+  bottom: 15px;
+  left: 50%;
+  margin-left: -1px;
+  box-shadow: 0 0 6px rgba(43, 18, 76, 0.3);
+}
+
+/* Individual Timeline Item Container */
+.challenge-section .timeline-item {
+  padding: 20px 40px;
+  position: relative;
+  width: 50%;
+  box-sizing: border-box;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.challenge-section .timeline-item:hover::after {
+  transform: scale(1.1);
+  border-color: var(--color-primary-500);
+  box-shadow: 
+    0 0 0 1px #ffffff,
+    0 3px 8px rgba(43, 18, 76, 0.4);
+}
+
+/* The circle (dot) on the timeline for each item */
+.challenge-section .timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(135deg, var(--color-primary-200) 0%, var(--color-primary-300) 100%);
+  border: 3px solid var(--color-primary-400);
+  top: 25px;
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 
+    0 0 0 1px #ffffff,
+    0 2px 6px rgba(43, 18, 76, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Positioning for Left and Right Items */
+.challenge-section .left { 
+  left: 0; 
+}
+
+.challenge-section .right { 
+  left: 50%; 
+}
+
+.challenge-section .left::after { 
+  right: -9px; 
+}
+
+.challenge-section .right::after { 
+  left: -9px; 
+}
+
+/* Content Styling */
+.challenge-section .content {
+  position: relative;
+}
+
+.challenge-section .left .content { 
+  text-align: right; 
+  margin-right: 2rem;
+  margin-left: 0;
+}
+
+.challenge-section .right .content {
+  text-align: left;
+  margin-left: 2rem;
+  margin-right: 0;
+}
+
+.challenge-section .content h3 {
+  font-family: 'Chillax', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: var(--color-purple-700);
+  line-height: 1.3;
+}
+
+.challenge-section .content p {
+  font-family: 'Chillax', sans-serif;
+  font-size: 1rem;
+  margin: 0;
+  color: var(--color-slate-600);
+  line-height: 1.6;
+}
+
+/* ========================================
+   5. IMPACT SECTION - Deep Purple Bento Grid
+   ======================================== */
+
+.impact-bento-container {
+  max-width: 1500px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+.impact-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+  gap: 2rem;
+}
+
+.bento-card {
+  background: rgba(105, 59, 105, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 2.5rem;
+  border: 1px solid rgba(149, 79, 108, 0.3);
+  box-shadow: 
+    0 8px 32px rgba(43, 18, 76, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px;
+  height: 100%;
+}
+
+.bento-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary-200), var(--color-primary-300));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.bento-card:hover {
+  background: rgba(105, 59, 105, 0.15);
+  box-shadow: 
+    0 12px 48px rgba(43, 18, 76, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border-color: rgba(149, 79, 108, 0.4);
+}
+
+.bento-card:hover::before {
+  opacity: 1;
+}
+
+.bento-large {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.bento-medium {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.bento-small {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.bento-tall {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.bento-feature {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.bento-wide {
+  grid-column: span 4;
+  grid-row: span 1;
+}
+
+.bento-number {
+  font-size: clamp(3rem, 3vw, 4rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--color-primary-300), var(--color-primary-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.75rem;
+  line-height: 1.1;
+  font-family: 'Chillax', sans-serif;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.bento-label {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary-400);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  font-family: 'Chillax', sans-serif;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.bento-description {
+  font-size: 1.05rem;
+  color: var(--color-slate-600);
+  line-height: 1.6;
+  margin-top: auto;
+  font-family: 'Chillax', sans-serif;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Approach List Below Bento Grid */
+.approach-list {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+}
+
+.approach-item {
+  background: rgba(105, 59, 105, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 2.5rem;
+  border-radius: 24px;
+  border: 1px solid rgba(149, 79, 108, 0.3);
+  box-shadow: 
+    0 4px 16px rgba(43, 18, 76, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+}
+
+.approach-item:hover {
+  background: rgba(105, 59, 105, 0.15);
+  box-shadow: 
+    0 8px 32px rgba(43, 18, 76, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border-color: rgba(149, 79, 108, 0.4);
+}
+
+.approach-item h4 {
+  font-size: 1.5rem;
+  color: var(--color-primary-400);
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+  font-family: 'Chillax', sans-serif;
+}
+
+.approach-item p {
+  font-size: 1.1rem;
+  color: var(--color-slate-700);
+  line-height: 1.7;
+  margin: 0;
+  font-family: 'Chillax', sans-serif;
+}
+
+/* ========================================
+   6. KEY LEARNINGS SECTION - Deep Purple Timeline
+   ======================================== */
+
+.learnings-section {
+  background: linear-gradient(135deg, rgba(105, 59, 105, 0.05), rgba(98, 59, 91, 0.03));
+  padding: 4rem 0;
+  margin: 4rem 0;
+}
+
+.numbered-learnings {
+  max-width: 1500px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  position: relative;
+}
+
+/* Connecting line - removed */
+.numbered-learnings::before {
+  display: none;
+}
+
+.learning-item {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 2.5rem;
+  position: relative;
+  padding: 2.5rem;
+  background: rgba(105, 59, 105, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(149, 79, 108, 0.3);
+  border-left: none;
+  box-shadow: 
+    0 8px 32px rgba(43, 18, 76, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.learning-item:hover {
+  transform: translateX(12px);
+  background: rgba(105, 59, 105, 0.15);
+  box-shadow: 
+    0 12px 48px rgba(43, 18, 76, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border-color: rgba(149, 79, 108, 0.4);
+  border-left: none;
+}
+
+.learning-number {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary-200), var(--color-primary-300));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.75rem;
+  font-weight: 700;
+  box-shadow: 
+    0 4px 16px rgba(149, 79, 108, 0.4),
+    inset 0 2px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 2;
+  font-family: 'Chillax', sans-serif;
+}
+
+.learning-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+.learning-title {
+  font-size: 1.75rem;
+  color: var(--color-primary-400);
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.3;
+  font-family: 'Chillax', sans-serif;
+}
+
+.learning-description {
+  font-size: 1.15rem;
+  color: var(--color-slate-700);
+  line-height: 1.7;
+  margin: 0;
+  font-family: 'Chillax', sans-serif;
+}
+
+/* ========================================
+   6. RESPONSIVE DESIGN
+   ======================================== */
+
+/* Tablet and Desktop Responsive */
+@media (max-width: 1024px) {
+  .impact-bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .bento-large,
+  .bento-wide {
+    grid-column: span 2;
+  }
+  
+  .approach-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive design for SVG grid */
+@media (max-width: 768px) {
+  .feedback-container {
+    padding: 1rem;
+  }
+
+  .feedback-card {
+    padding: 1.5rem;
+  }
+
+  .options-grid,
+  .svg-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .svg-grid {
+    gap: var(--space-6);
+  }
+  
+  .svg-window {
+    min-height: 250px;
+  }
+  
+  .n8n-window {
+    min-height: 300px;
+  }
+  
+  /* Impact Section Mobile */
+  .impact-bento-container {
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .impact-bento-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 1rem;
+  }
+  
+  .bento-card {
+    padding: 1.5rem;
+    min-height: 180px;
+  }
+  
+  .bento-large,
+  .bento-medium,
+  .bento-small,
+  .bento-tall,
+  .bento-feature,
+  .bento-wide {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  
+  .bento-number {
+    font-size: 2rem;
+  }
+  
+  .bento-label {
+    font-size: 1rem;
+  }
+  
+  .bento-description {
+    font-size: 0.9rem;
+  }
+  
+  .approach-list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .approach-item {
+    padding: 1.5rem;
+  }
+  
+  .approach-item h4 {
+    font-size: 1.15rem;
+  }
+  
+  .approach-item p {
+    font-size: 0.95rem;
+  }
+  
+  /* Learnings Section Mobile */
+  .learnings-section {
+    padding: 3rem 0;
+    margin: 3rem 0;
+  }
+  
+  .numbered-learnings {
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  
+  .numbered-learnings::before {
+    display: none;
+  }
+  
+  .learning-item {
+    grid-template-columns: 60px 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .learning-number {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+  }
+  
+  .learning-title {
+    font-size: 1.25rem;
+  }
+  
+  .learning-description {
+    font-size: 0.95rem;
+  }
+}
+

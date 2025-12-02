@@ -1,0 +1,227 @@
+/* 
+   Hero section styles
+   This file handles the main hero section with title, subtitle, and floating decorations
+*/
+
+/* Main hero section container - Mobile First with viewport fixes */
+.hero {
+  padding: var(--space-16) 0 var(--space-12);
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+  min-height: calc(var(--vh, 1vh) * 100); /* Fallback for JavaScript-calculated viewport */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hero content container - Mobile First */
+.hero-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Main hero title */
+.hero-title {
+  margin-bottom: var(--space-8);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+/* Hero greeting line - Mobile First */
+.hero-greeting {
+  display: block;
+  font-family: var(--font-telma);
+  font-size: clamp(2rem, 10vw, 6rem);
+  font-weight: 700;
+  color: var(--color-purple-700);
+  margin-bottom: var(--space-2);
+  line-height: 1.1;
+}
+
+[data-theme="dark"] .hero-greeting {
+  color: #D8BFD8;
+}
+
+/* Hero subtitle line - Mobile First */
+.hero-subtitle {
+  display: block;
+  font-family: var(--font-telma);
+  font-size: clamp(1.5rem, 8vw, 4.5rem);
+  font-weight: 700;
+  color: var(--color-purple-700);
+  white-space: nowrap;
+  line-height: 1.1;
+}
+
+[data-theme="dark"] .hero-subtitle {
+  color: #D8BFD8;
+}
+
+/* Hero description paragraph - Mobile First */
+.hero-description {
+  font-family: var(--font-chillax);
+  font-size: clamp(0.875rem, 4vw, 1.125rem);
+  color: var(--color-slate-600);
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 0;
+  padding: 0 var(--space-2);
+}
+
+[data-theme="dark"] .hero-description {
+  color: #E6E6FA  ;
+}
+
+/* Floating decorative stars */
+.floating-star {
+  position: absolute;
+  font-size: 1.25rem;
+  opacity: 0.6;
+  animation: float 6s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Individual star positions */
+.star-1 {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.star-2 {
+  top: 40%;
+  right: 15%;
+  animation-delay: 2s;
+  font-size: 1.5rem;
+}
+
+.star-3 {
+  top: 60%;
+  left: 25%;
+  animation-delay: 4s;
+  font-size: 1rem;
+}
+
+/* Floating animation keyframes */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+/* Fade in animation for hero content */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-description {
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+/* Tablet and up responsive adjustments */
+@media (min-width: 768px) {
+  .hero {
+    padding: var(--space-24) 0 var(--space-20);
+    min-height: 80vh;
+    min-height: 80dvh; /* Dynamic viewport height for mobile browsers */
+    min-height: calc(var(--vh, 1vh) * 80); /* Fallback for JavaScript-calculated viewport */
+  }
+  
+  .hero-container {
+    padding: 0 var(--space-6);
+  }
+  
+  .hero-description {
+    padding: 0;
+  }
+}
+
+/* Desktop and up */
+@media (min-width: 992px) {
+  .hero {
+    min-height: 70vh;
+    min-height: 70dvh; /* Dynamic viewport height for mobile browsers */
+    min-height: calc(var(--vh, 1vh) * 70); /* Fallback for JavaScript-calculated viewport */
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 767px) {
+  .hero-subtitle {
+    white-space: normal;
+  }
+  
+  /* Adjust floating stars for mobile */
+  .floating-star {
+    font-size: 1rem;
+  }
+  
+  .star-2 {
+    font-size: 1.25rem;
+  }
+  
+  .star-3 {
+    font-size: 0.875rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .hero-title {
+    margin-bottom: var(--space-6);
+  }
+  
+  .hero-greeting {
+    margin-bottom: var(--space-1);
+  }
+  
+  /* Hide some floating stars on very small screens */
+  .star-3 {
+    display: none;
+  }
+  
+  .hero-description {
+    padding: 0 var(--space-1);
+  }
+}
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+  .floating-star {
+    opacity: 0.8;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .floating-star {
+    animation: none;
+  }
+  
+  .hero-title,
+  .hero-description {
+    animation: none;
+  }
+}

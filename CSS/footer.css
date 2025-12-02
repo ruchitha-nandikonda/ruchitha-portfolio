@@ -1,0 +1,269 @@
+/* 
+   Footer styles
+   This file handles the footer layout, social links, and copyright
+*/
+
+/* Main footer container */
+.footer {
+  padding: var(--space-16) 0;
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+/* Social links container - Mobile First */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+/* Individual social link - Mobile First */
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-chillax);
+  font-size: 0.75rem;
+  color: var(--color-slate-600);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-md);
+  min-height: 44px;
+}
+
+[data-theme="dark"] .social-link {
+  color: var(--color-slate-300);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Social link hover effects - Creative & Colorful */
+.social-link {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(149, 79, 108, 0.3), 
+    rgba(223, 184, 178, 0.3),
+    rgba(149, 79, 108, 0.3),
+    transparent
+  );
+  transition: left 0.5s ease;
+  z-index: -1;
+}
+
+.social-link:hover {
+  color: #954F6C;
+  background: linear-gradient(135deg, 
+    rgba(149, 79, 108, 0.15) 0%,
+    rgba(223, 184, 178, 0.2) 50%,
+    rgba(149, 79, 108, 0.15) 100%
+  );
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 
+    0 4px 15px rgba(149, 79, 108, 0.3),
+    0 0 20px rgba(223, 184, 178, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-md);
+}
+
+.social-link:hover::before {
+  left: 100%;
+}
+
+[data-theme="dark"] .social-link:hover {
+  color: #E9D5FF;
+  background: linear-gradient(135deg, 
+    rgba(196, 181, 253, 0.2) 0%,
+    rgba(139, 92, 246, 0.25) 50%,
+    rgba(196, 181, 253, 0.2) 100%
+  );
+  box-shadow: 
+    0 4px 20px rgba(196, 181, 253, 0.4),
+    0 0 30px rgba(139, 92, 246, 0.3),
+    0 0 40px rgba(196, 181, 253, 0.2);
+}
+
+/* Social link icons */
+.social-icon {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Social link text */
+.social-text {
+  font-weight: 500;
+}
+
+/* External link indicator */
+.external-icon {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  transition: transform var(--transition-fast);
+}
+
+.social-link:hover .external-icon {
+  transform: translate(2px, -2px) rotate(15deg);
+  color: #DFB8B2;
+  filter: drop-shadow(0 0 3px rgba(149, 79, 108, 0.5));
+}
+
+[data-theme="dark"] .social-link:hover .external-icon {
+  color: #C4B5FD;
+  filter: drop-shadow(0 0 5px rgba(196, 181, 253, 0.8));
+}
+
+.social-link:hover .social-icon {
+  transform: scale(1.2) rotate(5deg);
+  filter: drop-shadow(0 0 8px rgba(149, 79, 108, 0.6));
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+[data-theme="dark"] .social-link:hover .social-icon {
+  filter: drop-shadow(0 0 10px rgba(196, 181, 253, 0.8));
+}
+
+/* Footer bottom section */
+.footer-bottom {
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--color-slate-100);
+  text-align: center;
+}
+
+[data-theme="dark"] .footer-bottom {
+  border-top-color: rgba(139, 92, 246, 0.2);
+}
+
+/* Copyright text */
+.copyright {
+  font-family: var(--font-chillax);
+  font-size: 0.75rem;
+  color: var(--color-slate-400);
+  margin: 0;
+}
+
+[data-theme="dark"] .copyright {
+  color: var(--color-slate-400);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Tablet and up responsive adjustments */
+@media (min-width: 768px) {
+  .footer-container {
+    padding: 0 var(--space-6);
+  }
+  
+  .social-links {
+    gap: var(--space-4);
+    margin-bottom: var(--space-12);
+  }
+  
+  .social-link {
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.875rem;
+  }
+  
+  .social-text {
+    display: inline;
+  }
+  
+  .social-icon {
+    font-size: 1rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .social-links {
+    gap: var(--space-2);
+  }
+  
+  .social-link {
+    padding: var(--space-1);
+    min-height: 48px;
+  }
+  
+  .social-text {
+    display: none;
+  }
+  
+  .social-icon {
+    font-size: 1.25rem;
+  }
+}
+
+/* Focus states for accessibility */
+.social-link:focus {
+  outline: 2px solid var(--color-primary-400);
+  outline-offset: 2px;
+}
+
+/* Animation for social links on page load */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.social-link {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Stagger animation delays for social links */
+.social-link:nth-child(1) { animation-delay: 0.1s; }
+.social-link:nth-child(2) { animation-delay: 0.2s; }
+.social-link:nth-child(3) { animation-delay: 0.3s; }
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+  .social-link {
+    border: 1px solid var(--color-slate-300);
+  }
+  
+  [data-theme="dark"] .social-link {
+    border-color: var(--color-slate-600);
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .social-link {
+    animation: none;
+    transition: none;
+  }
+  
+  .social-link:hover {
+    transform: none;
+  }
+  
+  .social-link:hover .external-icon {
+    transform: none;
+  }
+}
